@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LexusFX — Vista móvil</title>
+  <script>
+    // En un iPhone/móvil real, el marco simulado (IOSDevice) se sobrepone a la UI nativa del
+    // teléfono. Detectamos pantalla táctil/estrecha y servimos la app responsive a pantalla
+    // completa (la "versión móvil" real). En desktop se mantiene la maqueta con marco.
+    (function () {
+      var esMovil = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+      if (esMovil) location.replace('index.html');
+    })();
+  </script>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh; background: #0b0e11;
+      background-image: radial-gradient(ellipse 70% 40% at 50% -6%, rgba(255,106,26,0.10), transparent 60%);
+      font-family: 'Inter', system-ui, sans-serif; color: #e7ecf1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 22px; padding: 28px 16px; overflow-x: hidden;
+    }
+    .cap { text-align: center; }
+    .cap .ref { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .72rem; letter-spacing: .16em; color: #8a97a4; text-transform: uppercase; }
+    .cap h1 { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.02em; margin-top: 8px; }
+    .cap h1 .fx { color: #ff6a1a; }
+    .cap p { color: #8a97a4; font-size: .9rem; margin-top: 6px; }
+    .cap a { color: #ff6a1a; text-decoration: none; font-size: .85rem; border-bottom: 1px solid rgba(255,106,26,.4); padding-bottom: 1px; }
+    #stage { display: flex; align-items: center; justify-content: center; }
+    .fit { transform-origin: top center; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="cap">
+    <div class="ref">LFX · Vista móvil</div>
+    <h1>Lexus<span class="fx">FX</span> en el teléfono</h1>
+    <p>Maqueta interactiva — desliza dentro del marco. <a href="index.html">Abrir a pantalla completa →</a></p>
+  </div>
+  <div id="stage"><div class="fit" id="fit"></div></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="ios-frame.jsx"></script>
+  <script type="text/babel">
+    const { useEffect } = React;
+
+    function MobilePreview() {
+      return (
+        <IOSDevice width={402} height={860}>
+          <div style={{ height: '100%', paddingTop: 48, paddingBottom: 6, background: '#0b0e11' }}>
+            <iframe
+              src="index.html"
+              title="LexusFX móvil"
+              style={{ width: '100%', height: '100%', border: 0, display: 'block', background: '#0b0e11' }}
+            />
+          </div>
+        </IOSDevice>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('fit')).render(<MobilePreview />);
+
+    // Escalar el marco para que quepa en cualquier ventana
+    function fit() {
+      const el = document.getElementById('fit');
+      if (!el) return;
+      const capH = document.querySelector('.cap').offsetHeight + 90;
+      const s = Math.min(1, (window.innerHeight - capH) / 860, (window.innerWidth - 32) / 402);
+      el.style.transform = 'scale(' + Math.max(0.4, s) + ')';
+      document.getElementById('stage').style.height = (860 * Math.max(0.4, s)) + 'px';
+    }
+    window.addEventListener('resize', fit);
+    setTimeout(fit, 100); setTimeout(fit, 600);
+  </script>
+</body>
+</html>

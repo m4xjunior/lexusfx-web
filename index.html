@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<!-- ════════════════════════════════════════════════════════════
+     LexusFX — Portafolio de ingeniería de software (single-page)
+     Bilingüe ES/PT · tema oscuro por defecto · sistema gráfico LFX
+     EDITAR en el código: número WhatsApp (TU_NUMERO), email (TU_EMAIL),
+     CNPJ completo, endpoint del formulario, bandera DEMO_STUDIO_LISTO
+     y URL_DEMO_STUDIO (en assets/app.js), y el testimonio anonimizado.
+     ════════════════════════════════════════════════════════════ -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LexusFX — Visión artificial, automatización industrial y apps a medida</title>
+  <meta name="description" content="Ingeniería de software en producción real: IA y visión artificial para industria, y apps/tiendas a medida." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LexusFX — Visión artificial, automatización industrial y apps a medida" />
+  <meta property="og:description" content="Ingeniería de software en producción real." />
+  <meta property="og:site_name" content="LexusFX" />
+  <!-- Favicon: monograma LFX con tratamiento [FX] -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230B0E11'/%3E%3Ctext x='8' y='42' font-family='monospace' font-weight='700' font-size='26' fill='%23E7ECF1'%3EL%3C/text%3E%3Cpath d='M24 18 L22 18 L22 46 L24 46 M56 18 L58 18 L58 46 L56 46' stroke='%23FF6A1A' stroke-width='2' fill='none'/%3E%3Ctext x='28' y='42' font-family='monospace' font-weight='700' font-size='26' fill='%23FF6A1A'%3EFX%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css?v=20260602" />
+  <link rel="stylesheet" href="assets/motion.css?v=20260602" />
+  <!-- Marca .js para activar las animaciones de revelado; sin JS el contenido se ve igual. -->
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#inicio" class="nav-brand" aria-label="LexusFX inicio">
+      <span class="wordmark" style="font-size:1.25rem;"><span class="lex">Lexus</span><span class="fx">FX</span></span>
+      <span class="mono-tag">LFX</span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Navegación principal">
+      <a href="#inicio" data-i18n="nav.inicio">Inicio</a>
+      <a href="#casos" data-i18n="nav.casos">Casos</a>
+      <a href="#servicios" data-i18n="nav.servicios">Servicios</a>
+      <a href="#proceso" data-i18n="nav.proceso">Proceso</a>
+      <a href="#sobre" data-i18n="nav.sobre">Sobre mí</a>
+      <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
+    </nav>
+    <div class="nav-tools">
+      <div class="seg" role="group" aria-label="Idioma / Língua">
+        <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang-btn="pt" aria-pressed="false">PT</button>
+      </div>
+      <button type="button" class="icon-btn seg-theme" data-theme-toggle aria-label="Cambiar tema claro/oscuro">
+        <svg data-theme-icon="dark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg data-theme-icon="light" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+      <a href="#contacto" class="btn btn-primary" data-i18n="nav.cta">Hablemos</a>
+      <button type="button" class="icon-btn nav-burger" id="burger" aria-label="Abrir menú" aria-expanded="false" data-i18n-attr="aria-label:nav.menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════ 01 · HERO ══════════════ -->
+<section id="inicio" class="hero">
+  <div class="hero-photo" aria-hidden="true">
+    <img src="assets/img/hero-bg.jpg" alt="" loading="eager" decoding="async" />
+  </div>
+  <span class="dotgrid" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-01</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="hero.kicker">Desarrollo de software en producción</span>
+    </div>
+    <span class="status-pill reveal"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.status">Disponible para proyectos</span></span>
+    <h1 class="h-display reveal"><span data-i18n="hero.h1a">Visión artificial, automatización industrial y apps a medida</span> <span class="accent" data-i18n="hero.h1b">— ya en producción.</span></h1>
+    <p class="lead reveal" data-i18n="hero.lead">Construyo dos cosas: sistemas de IA y visión artificial para industria…</p>
+    <div class="hero-cta reveal">
+      <a href="#contacto" class="btn btn-primary btn-lg" data-i18n="hero.cta1">Hablemos de tu proyecto</a>
+      <a href="#casos" class="btn btn-ghost btn-lg" data-i18n="hero.cta2">Ver casos</a>
+    </div>
+    <div class="hero-blueprint reveal" aria-hidden="true">
+      <div class="cota"><span>LFX</span><span class="cota-line"></span><span>EST. 2024 · PRODUCCIÓN REAL</span><span class="cota-line"></span><span>ES · PT</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 02 · CREDIBILIDAD ══════════════ -->
+<section id="credibilidad" class="cred">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-02</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="cred.kicker">Prueba y credibilidad</span>
+    </div>
+
+    <!-- Sello misión crítica (1 de 2 apariciones permitidas) -->
+    <div class="seal reveal">
+      <svg class="seal-ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      <p data-i18n="cred.seal">Más de un año en sistemas de planta de un fabricante de automoción de primer nivel, donde un fallo no es una opción.</p>
+    </div>
+
+    <!-- Métricas (contador) -->
+    <div class="metrics stagger">
+      <div class="metric reveal framed">
+        <span class="tick mono">001</span>
+        <div class="num"><span data-count="2600" data-suffix="+">2.600+</span></div>
+        <div class="lbl" data-i18n="cred.m1.lbl">trabajadores gestionados en producción</div>
+      </div>
+      <div class="metric reveal framed">
+        <span class="tick mono">002</span>
+        <div class="num"><span data-i18n="cred.m2.num">Tiempo real</span></div>
+        <div class="lbl" data-i18n="cred.m2.lbl">inferencia de visión artificial (YOLO)</div>
+      </div>
+      <div class="metric reveal framed">
+        <span class="tick mono">003</span>
+        <div class="num"><span data-i18n="cred.m3.num">24/7</span></div>
+        <div class="lbl" data-i18n="cred.m3.lbl">sistemas corriendo en producción real</div>
+      </div>
+      <div class="metric reveal framed">
+        <span class="tick mono">004</span>
+        <div class="num"><span data-count="100" data-suffix="%">100%</span></div>
+        <div class="lbl" data-i18n="cred.m4.lbl">código a medida, cero plantillas</div>
+      </div>
+    </div>
+
+    <!-- Bloque de confianza -->
+    <div class="trust">
+      <!-- EDITAR: testimonio anonimizado; sustituible por uno nominal autorizado -->
+      <figure class="trust-quote reveal">
+        <blockquote data-i18n="cred.quote">«Pidió alcance claro, entregó en producción y dejó el sistema funcionando. Sin dramas, sin humo.»</blockquote>
+        <cite data-i18n="cred.cite">— Responsable de operaciones, sector automoción (referencia disponible bajo petición)</cite>
+      </figure>
+      <div class="trust-verify reveal">
+        <div class="vh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span data-i18n="cred.verify.h">Cómo verificar</span></div>
+        <p data-i18n="cred.verify.p">¿Cómo lo verificas? Repositorios y demos públicos disponibles bajo petición, y referencia directa de un proyecto en producción.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 03 · SERVICIOS ══════════════ -->
+<section id="servicios" class="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-03</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="svc.kicker">Servicios</span>
+    </div>
+    <h2 class="h-section reveal" data-i18n="svc.title">Dos gamas, una misma exigencia.</h2>
+
+    <div class="svc-grid stagger">
+      <!-- Gama A: Studio -->
+      <article class="svc-card reveal" style="--i:0">
+        <div class="svc-photo img-treat">
+          <img src="assets/img/studio-apps.jpg" alt="" loading="lazy" decoding="async" />
+          <span class="svc-kicker">LFX · Studio</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2.5"/><path d="M12 18h.01"/><path d="M9 6h6"/></svg>
+          </div>
+        </div>
+        <div class="svc-body">
+        <div class="svc-tag"><span>LexusFX Studio</span><span class="badge" data-i18n="svc.studio.tag">Gama de entrada</span></div>
+        <h3>LexusFX Studio</h3>
+        <div class="svc-sub" data-i18n="svc.studio.sub">Apps y tiendas a medida</div>
+        <p class="svc-desc" data-i18n="svc.studio.desc">Apps y tiendas a medida para vender de verdad…</p>
+        <ul class="svc-feats">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.studio.f1">Catálogo y carrito</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.studio.f2">Pedidos por WhatsApp</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.studio.f3">Panel de administración</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.studio.f4">PWA instalable</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.studio.f5">Diseño a medida</span></li>
+        </ul>
+        </div>
+      </article>
+
+      <!-- Gama B: Industrial (destacada) -->
+      <article class="svc-card featured reveal" style="--i:1">
+        <div class="svc-photo img-treat">
+          <img src="assets/img/robotica.jpg" alt="" loading="lazy" decoding="async" />
+          <span class="svc-kicker">LFX · Industrial</span>
+          <div class="svc-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V8l5 3V8l5 3V6l6 4v10"/><circle cx="7" cy="15" r="1"/><circle cx="12" cy="15" r="1"/></svg>
+          </div>
+        </div>
+        <div class="svc-body">
+        <div class="svc-tag"><span>LexusFX Industrial</span><span class="badge" data-i18n="svc.ind.tag">Gama premium</span></div>
+        <h3>LexusFX Industrial</h3>
+        <div class="svc-sub" data-i18n="svc.ind.sub">IA, visión artificial y automatización</div>
+        <p class="svc-desc" data-i18n="svc.ind.desc">Sistemas de inteligencia artificial, visión artificial y automatización…</p>
+        <ul class="svc-feats">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.ind.f1">Inspección visual automatizada</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.ind.f2">Control de robótica y línea</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.ind.f3">Visión artificial (YOLO/ONNX)</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.ind.f4">IoT y telemetría</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="svc.ind.f5">Modelos de IA a medida</span></li>
+        </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 04 · CASOS ══════════════ -->
+<section id="casos" class="casos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-04</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="case.kicker">Casos</span>
+    </div>
+    <h2 class="h-section reveal" data-i18n="case.title">Sistemas reales, resultados medibles.</h2>
+
+    <!-- ───── CASO 1 · Industrial · Inspección visual ───── -->
+    <article class="case reveal framed">
+      <div class="case-head">
+        <div>
+          <div class="case-meta">
+            <span class="gama-badge gama-industrial">LexusFX Industrial</span>
+            <span class="case-ref">REF. LFX-CASE-01</span>
+          </div>
+          <h3 data-i18n="case1.name">Inspección visual automatizada en línea</h3>
+        </div>
+        <div class="case-rsr">
+          <div class="rsr-block"><div class="rsr-lbl" data-i18n="case.reto">Reto</div><p data-i18n="case1.reto">Una línea de producción necesitaba detectar defectos…</p></div>
+          <div class="rsr-block"><div class="rsr-lbl" data-i18n="case.solucion">Solución</div><p data-i18n="case1.sol">Diseñé un sistema de visión artificial con modelos YOLO/ONNX…</p></div>
+          <div class="rsr-block">
+            <div class="rsr-lbl" data-i18n="case.resultado">Resultado</div>
+            <ul class="case-feats">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case1.r1">Inferencia en tiempo real sobre la línea</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case1.r2">Detección OK/NOK con visión artificial</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case1.r3">Robot UR controlado vía Modbus TCP</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case1.r4">Cero intervención manual en la decisión</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-visuals viz">
+        <!-- Visión real + bounding boxes animados sobre la cámara industrial -->
+        <div class="visual">
+          <div class="vcap"><span data-i18n="case1.v1">Inspección · visión artificial</span><span class="mono live-tag" data-i18n="case1.v1tag">en línea</span></div>
+          <div class="vision-stage" role="img" aria-label="Cámara industrial inspeccionando piezas en una línea; cuadros de detección marcan OK y NOK con su confianza.">
+            <img src="assets/img/vision-artificial.jpg" alt="" loading="lazy" decoding="async" />
+            <span class="vision-grid" aria-hidden="true"></span>
+            <div class="bbox ok"  style="--x:4;--y:64;--w:24;--h:26;--bd:140ms"><span class="bbox-lbl">OK · 98.7%</span></div>
+            <div class="bbox"     style="--x:33;--y:54;--w:24;--h:28;--bd:360ms"><span class="bbox-lbl">NOK · 91.2%</span></div>
+            <div class="bbox ok"  style="--x:62;--y:42;--w:21;--h:22;--bd:560ms"><span class="bbox-lbl">OK · 96.4%</span></div>
+            <span class="vision-scan" aria-hidden="true"></span>
+            <div class="vision-hud"><span data-i18n="case1.frame">FRAME 0428 · conf ≥ 0.85</span><span class="ms">18 ms</span></div>
+          </div>
+          <div class="recreation-note" data-i18n="case.recreation">Recreación ilustrativa — sin datos confidenciales.</div>
+        </div>
+
+        <div class="visual-grid-2">
+          <!-- Celda robótica: flujo vertical legible (mobile-first, no se corta) -->
+          <div class="visual">
+            <div class="vcap"><span data-i18n="case1.v2">Celda robótica · cadena de control</span><span class="mono">Modbus TCP</span></div>
+            <div class="vbody">
+              <div class="flow">
+                <div class="flow-node"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3.5"/></svg></span><span class="flow-tx"><span class="ft" data-i18n="flow.cam">Cámara</span><span class="fs">RGB · línea</span></span></div>
+                <div class="flow-conn"><span class="fc-line"></span></div>
+                <div class="flow-node accent"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span><span class="flow-tx"><span class="ft" data-i18n="flow.model">Modelo</span><span class="fs">YOLO / ONNX</span></span><span class="flow-state">OK / NOK</span></div>
+                <div class="flow-conn"><span class="fc-line"></span></div>
+                <div class="flow-node"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="flow-tx"><span class="ft" data-i18n="flow.ctrl">Control</span><span class="fs">PLC</span></span></div>
+                <div class="flow-conn"><span class="fc-line"></span><span class="fc-tag">Modbus TCP</span></div>
+                <div class="flow-node"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="11" width="8" height="9" rx="2"/><path d="M12 7v4M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M8 16H5a2 2 0 0 1-2-2v-1M16 16h3a2 2 0 0 0 2-2v-1"/><path d="M10 15h.01M14 15h.01"/></svg></span><span class="flow-tx"><span class="ft">Robot UR</span><span class="fs" data-i18n="flow.pick">pick / place</span></span></div>
+              </div>
+            </div>
+            <div class="recreation-note" data-i18n="case.recreation">Recreación ilustrativa — sin datos confidenciales.</div>
+          </div>
+
+          <!-- Latencia de inferencia (se mantiene, ahora se dibuja al entrar) -->
+          <div class="visual">
+            <div class="vcap"><span data-i18n="case1.v3">Inferencia en tiempo real</span><span class="mono live-tag">latencia · ms</span></div>
+            <div class="vbody">
+              <svg viewBox="0 0 640 150" width="100%" role="img" aria-label="Mini-gráfico de latencia de inferencia en tiempo real, valores ilustrativos en milisegundos.">
+                <rect x="0" y="0" width="640" height="150" fill="var(--bg-base)"/>
+                <g stroke="var(--line-soft)" stroke-width="1"><line x1="0" y1="50" x2="640" y2="50"/><line x1="0" y1="100" x2="640" y2="100"/></g>
+                <polygon class="fade" fill="var(--cyan-soft)" points="0,92 53,80 106,100 160,72 213,84 266,62 320,76 373,54 426,88 480,64 533,74 586,52 640,70 640,150 0,150"/>
+                <polyline class="draw" style="--len:780" stroke-dasharray="780" fill="none" stroke="var(--cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="0,92 53,80 106,100 160,72 213,84 266,62 320,76 373,54 426,88 480,64 533,74 586,52 640,70"/>
+                <text x="10" y="22" font-family="var(--font-mono)" font-size="11" fill="var(--cyan)">~18 ms p50</text>
+                <text x="548" y="22" font-family="var(--font-mono)" font-size="11" fill="var(--fg-mute)">~28 ms p95</text>
+              </svg>
+            </div>
+            <div class="recreation-note" data-i18n="case.recreation">Recreación ilustrativa — sin datos confidenciales.</div>
+          </div>
+        </div>
+      </div>
+      </article>
+
+    <!-- ───── CASO 2 · Industrial · Gestión de planta ───── -->
+    <article class="case reveal framed">
+      <div class="case-head">
+        <div>
+          <div class="case-meta">
+            <span class="gama-badge gama-industrial">LexusFX Industrial</span>
+            <span class="case-ref">REF. LFX-CASE-02</span>
+          </div>
+          <h3 data-i18n="case2.name">Gestión de planta multi-usuario</h3>
+        </div>
+        <div class="case-rsr">
+          <div class="rsr-block"><div class="rsr-lbl" data-i18n="case.reto">Reto</div><p data-i18n="case2.reto">Operar una planta con miles de trabajadores…</p></div>
+          <div class="rsr-block"><div class="rsr-lbl" data-i18n="case.solucion">Solución</div><p data-i18n="case2.sol">Construí una plataforma web multi-tenant…</p></div>
+          <div class="rsr-block">
+            <div class="rsr-lbl" data-i18n="case.resultado">Resultado</div>
+            <ul class="case-feats">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case2.r1">2.600+ trabajadores en producción</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case2.r2">Multi-tenant con trazabilidad</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case2.r3">Voz integrada (TTS/STT)</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case2.r4">Despliegue continuo, infraestructura propia</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-visuals viz">
+        <!-- Foto real de la planta como banner del caso -->
+        <div class="visual img-treat" style="height:clamp(150px,26vw,240px);">
+          <img src="assets/img/planta-industrial.jpg" alt="" loading="lazy" decoding="async" style="position:absolute;inset:0;" />
+          <span class="cp-tag"><span class="live-dot"></span><span data-i18n="case2.banner">Planta en producción · 2.600+ operarios</span></span>
+        </div>
+
+        <div class="visual-grid-2">
+          <!-- Dashboard de planta: KPIs mobile-first, tarjetas completas -->
+          <div class="visual">
+            <div class="vcap"><span data-i18n="case2.v1">Dashboard de planta · KPIs</span><span class="mono live-tag">live</span></div>
+            <div class="vbody">
+              <div class="kpi-row">
+                <div class="kpi-card">
+                  <div class="kl" data-i18n="case2.k1">Activos en turno</div>
+                  <div class="kn"><span data-count="2613" data-suffix="">2.613</span></div>
+                  <div class="ks up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg><span data-i18n="case2.k1s">en producción</span></div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kl" data-i18n="case2.k2">Estaciones</div>
+                  <div class="kn">48</div>
+                  <div class="ks cyan">42 <span data-i18n="case2.k2s">online</span></div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kl" data-i18n="case2.k3">Conteos hoy</div>
+                  <div class="kn"><span data-count="18420" data-suffix="">18.420</span></div>
+                  <div class="ks" data-i18n="case2.k3s">acumulado del turno</div>
+                </div>
+              </div>
+              <div class="plant-bars">
+                <div class="pb-head"><span data-i18n="case2.thr">Throughput · por hora</span><span class="mono">u/h</span></div>
+                <div class="bars"><i style="height:50%;--bi:0"></i><i style="height:68%;--bi:1"></i><i style="height:40%;--bi:2"></i><i style="height:82%;--bi:3"></i><i style="height:60%;--bi:4"></i><i style="height:74%;--bi:5"></i><i style="height:52%;--bi:6"></i><i style="height:66%;--bi:7"></i><i style="height:58%;--bi:8"></i><i style="height:86%;--bi:9" class="hot"></i><i style="height:46%;--bi:10"></i><i style="height:70%;--bi:11"></i></div>
+              </div>
+            </div>
+            <div class="recreation-note" data-i18n="case.recreation">Recreación ilustrativa — sin datos confidenciales.</div>
+          </div>
+
+          <!-- Arquitectura multi-tenant: tiers apilados, responsive -->
+          <div class="visual">
+            <div class="vcap"><span data-i18n="case2.v2">Arquitectura multi-tenant</span><span class="mono">self-hosted</span></div>
+            <div class="vbody">
+              <div class="flow">
+                <div class="tier">
+                  <div class="flow-node"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span class="flow-tx"><span class="ft">Web · tenant A</span><span class="fs" data-i18n="arch.web">navegador</span></span></div>
+                  <div class="flow-node"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span class="flow-tx"><span class="ft">Web · tenant B</span><span class="fs" data-i18n="arch.web2">navegador</span></span></div>
+                  <div class="flow-node"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10a7 7 0 0 1-14 0M12 19v3"/></svg></span><span class="flow-tx"><span class="ft" data-i18n="arch.voz">Voz</span><span class="fs">TTS / STT</span></span></div>
+                </div>
+                <div class="tier-conn"><span class="fc-line"></span></div>
+                <div class="flow-node accent"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg></span><span class="flow-tx"><span class="ft">API · Rust axum</span><span class="fs" data-i18n="arch.api">multi-tenant · auth</span></span></div>
+                <div class="tier-conn"><span class="fc-line"></span></div>
+                <div class="tier">
+                  <div class="flow-node"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span><span class="flow-tx"><span class="ft">PostgreSQL</span><span class="fs" data-i18n="arch.db">trazabilidad</span></span></div>
+                  <div class="flow-node"><span class="flow-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><span class="flow-tx"><span class="ft" data-i18n="arch.infra">Infra propia</span><span class="fs">Proxmox · Docker</span></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="recreation-note" data-i18n="case.recreation">Recreación ilustrativa — sin datos confidenciales.</div>
+          </div>
+        </div>
+      </div>
+      </article>
+
+    <!-- ───── CASO 3 · Studio · Tienda PWA ───── -->
+    <article class="case reveal framed">
+      <div class="case-head">
+        <div>
+          <div class="case-meta">
+            <span class="gama-badge gama-studio">LexusFX Studio</span>
+            <span class="case-ref">REF. LFX-CASE-03</span>
+          </div>
+          <h3 data-i18n="case3.name">Tienda PWA a medida — demostración de capacidad</h3>
+        </div>
+        <div class="case-rsr">
+          <div class="rsr-block"><div class="rsr-lbl" data-i18n="case.reto">Reto</div><p data-i18n="case3.reto">Un comercio de importados necesitaba vender online…</p></div>
+          <div class="rsr-block"><div class="rsr-lbl" data-i18n="case.solucion">Solución</div><p data-i18n="case3.sol">Diseñé y construí una PWA completa…</p></div>
+          <div class="rsr-block">
+            <div class="rsr-lbl" data-i18n="case.resultado">Resultado</div>
+            <ul class="case-feats">
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case3.r1">Catálogo + cuenta + carrito</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case3.r2">Checkout directo a WhatsApp</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case3.r3">Panel de administración propio</span></li>
+              <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="case3.r4">PWA instalable, sin tiendas de apps</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-visuals">
+        <!-- GALERÍA DE CAPTURAS (nombre neutro "Demo Tienda PWA", sin marca de cliente) -->
+        <div class="studio-gallery">
+          <!-- ░░ 1 · CATÁLOGO ░░ -->
+          <div>
+            <div class="pwa-frame" role="img" aria-label="Mockup de la pantalla de catálogo de una tienda PWA neutra.">
+              <div class="pwa-sb"><span>9:41</span><span class="sig"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:5px;opacity:.4"></i></span></div>
+              <div class="pwa-row" style="padding:2px 10px 7px;">
+                <span class="pwa-mono">D</span>
+                <div style="line-height:1.05;"><div class="d" style="font-size:9px;">Demo Tienda</div><div style="font:600 5px var(--font-mono);letter-spacing:.16em;color:var(--mut);">PWA</div></div>
+                <span style="margin-left:auto;width:17px;height:17px;border:1px solid var(--ln);border-radius:6px;background:var(--wht);display:grid;place-items:center;"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16273f" stroke-width="2" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
+              </div>
+              <div style="padding:0 10px;"><div class="pwa-row" style="background:var(--wht);border:1px solid var(--ln);border-radius:9px;height:19px;padding:0 7px;"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#7c8794" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg><span class="bar" style="width:58%;height:4px;"></span></div></div>
+              <div style="padding:7px 10px 0;"><div class="pwa-hero">
+                <span class="bar" style="width:30%;height:3px;background:var(--gd);margin-bottom:5px;"></span>
+                <span class="bar" style="width:82%;height:5px;background:rgba(255,255,255,.92);margin-bottom:3px;"></span>
+                <span class="bar" style="width:64%;height:5px;background:rgba(255,255,255,.92);margin-bottom:5px;"></span>
+                <span class="bar" style="width:40%;height:3px;background:rgba(255,255,255,.32);"></span>
+              </div></div>
+              <div class="pwa-row" style="gap:4px;padding:7px 10px 6px;overflow:hidden;">
+                <span class="pwa-pill on">Todos</span><span class="pwa-pill">Vitaminas</span><span class="pwa-pill">Perfumes</span>
+              </div>
+              <div class="pwa-row" style="justify-content:space-between;align-items:baseline;padding:0 10px 5px;"><span class="d" style="font-size:12px;">Catálogo</span><span style="font:600 6px var(--font-mono);color:var(--mut);">12</span></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:0 10px 8px;">
+                <div class="pwa-card">
+                  <div class="pwa-img"><span class="pwa-badge" style="position:absolute;top:4px;left:4px;">EUA</span><span class="pwa-heart"><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#7c8794" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></span></div>
+                  <div style="padding:5px 6px 6px;"><span class="bar" style="width:50%;height:3px;margin-bottom:4px;"></span><span class="bar" style="width:88%;height:4px;background:#cfc7b6;margin-bottom:2px;"></span><span class="bar" style="width:60%;height:4px;background:#cfc7b6;margin-bottom:5px;"></span><div class="pwa-row" style="justify-content:space-between;"><span class="d" style="font-size:8px;">R$ 189,90</span><span style="width:5px;height:5px;border-radius:9px;background:var(--gr);"></span></div></div>
+                </div>
+                <div class="pwa-card">
+                  <div class="pwa-img" style="background:radial-gradient(circle at 50% 40%,#eef1f4,#d6dde6);"><span class="pwa-badge" style="position:absolute;top:4px;left:4px;">EUA</span><span class="pwa-heart"><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#7c8794" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg></span></div>
+                  <div style="padding:5px 6px 6px;"><span class="bar" style="width:42%;height:3px;margin-bottom:4px;"></span><span class="bar" style="width:80%;height:4px;background:#cfc7b6;margin-bottom:2px;"></span><span class="bar" style="width:54%;height:4px;background:#cfc7b6;margin-bottom:5px;"></span><div class="pwa-row" style="justify-content:space-between;"><span class="d" style="font-size:8px;">R$ 1.249</span><span style="width:5px;height:5px;border-radius:9px;background:var(--gd);"></span></div></div>
+                </div>
+              </div>
+              <div class="pwa-tab">
+                <svg class="act" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+              </div>
+            </div>
+            <div class="phone-cap" data-i18n="case3.g1">Catálogo</div>
+          </div>
+
+          <!-- ░░ 2 · FICHA + SACOLA ░░ -->
+          <div>
+            <div class="pwa-frame" role="img" aria-label="Mockup de la ficha de producto de una tienda PWA neutra.">
+              <div class="pwa-sb"><span>9:41</span><span class="sig"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:5px;opacity:.4"></i></span></div>
+              <div style="margin:0 10px;border-radius:10px;background:radial-gradient(circle at 50% 42%,#f6f0e4,#e2dac8);height:40%;position:relative;display:flex;">
+                <div class="pwa-jar"></div>
+                <span style="position:absolute;top:6px;right:6px;width:13px;height:13px;border-radius:999px;background:var(--wht);display:grid;place-items:center;"><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#16273f" stroke-width="2.4"><path d="M6 6 18 18M18 6 6 18"/></svg></span>
+              </div>
+              <div style="padding:8px 11px 0;">
+                <div class="pwa-row" style="gap:5px;margin-bottom:6px;"><span class="pwa-badge">IMPORTADO</span><span class="pwa-flag" style="background:linear-gradient(#3c3b6e 33%,#fff 33% 66%,#b22 66%)"></span><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#7c8794" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="pwa-flag" style="background:linear-gradient(#159a45,#159a45)"></span></div>
+                <span class="bar" style="width:34%;height:3px;margin-bottom:5px;"></span>
+                <div class="d" style="font-size:13px;line-height:1.1;margin-bottom:6px;">Suplemento<br>120 caps</div>
+                <div class="pwa-row" style="gap:3px;margin-bottom:7px;">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="#bf9646"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+                  <span style="font:700 7px var(--font-sans);">4.9</span><span style="font:600 6px var(--font-mono);color:var(--mut);">(412)</span>
+                  <span style="margin-left:4px;width:5px;height:5px;border-radius:9px;background:var(--gr);"></span><span class="pwa-green" style="font:700 6px var(--font-sans);">·</span>
+                </div>
+                <span class="bar" style="width:94%;height:3.5px;margin-bottom:3px;"></span>
+                <span class="bar" style="width:78%;height:3.5px;margin-bottom:8px;"></span>
+                <div class="pwa-row" style="gap:6px;">
+                  <div style="flex:1;border:1px solid var(--ln);border-radius:7px;padding:5px;background:var(--wht);"><div class="pwa-row" style="gap:4px;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#1a9a5f" stroke-width="2"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg><span class="bar" style="width:60%;height:3px;"></span></div></div>
+                  <div style="flex:1;border:1px solid var(--ln);border-radius:7px;padding:5px;background:var(--wht);"><div class="pwa-row" style="gap:4px;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#bf9646" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="bar" style="width:55%;height:3px;"></span></div></div>
+                </div>
+              </div>
+              <div class="pwa-row" style="margin-top:auto;padding:8px 11px;gap:8px;border-top:1px solid var(--ln);background:var(--wht);">
+                <div><div style="font:600 5px var(--font-mono);color:var(--mut);">R$</div><div class="d" style="font-size:11px;">189,90</div></div>
+                <div class="pwa-cta" style="flex:1;margin:0;"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></div>
+              </div>
+            </div>
+            <div class="phone-cap" data-i18n="case3.g2">Ficha + sacola</div>
+          </div>
+
+          <!-- ░░ 3 · CHECKOUT WHATSAPP ░░ -->
+          <div>
+            <div class="pwa-frame" role="img" aria-label="Mockup del checkout que arma el pedido por WhatsApp.">
+              <div class="pwa-sb"><span>9:41</span><span class="sig"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:5px;opacity:.4"></i></span></div>
+              <div class="pwa-row" style="padding:2px 11px 8px;gap:7px;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16273f" stroke-width="2.2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg><span class="d" style="font-size:11px;">Checkout</span></div>
+              <div style="padding:0 11px;display:grid;gap:7px;">
+                <div style="border:1px solid var(--ln);border-radius:8px;background:var(--wht);padding:7px;">
+                  <div class="pwa-row" style="gap:5px;margin-bottom:6px;"><span class="pwa-step">1</span><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16273f" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span class="bar" style="width:40%;height:4px;background:#cfc7b6;"></span></div>
+                  <span style="display:inline-flex;align-items:center;gap:4px;background:rgba(26,154,95,.12);border:1px solid rgba(26,154,95,.3);border-radius:999px;padding:2px 6px;"><svg width="7" height="7" viewBox="0 0 24 24" fill="#1a9a5f"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2z"/></svg><span class="pwa-green" style="font:700 6px var(--font-sans);">WhatsApp</span></span>
+                </div>
+                <div style="border:1px solid var(--ln);border-radius:8px;background:var(--wht);padding:7px;">
+                  <div class="pwa-row" style="gap:5px;margin-bottom:6px;"><span class="pwa-step">2</span><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#16273f" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L3 21l1.1-3a8.4 8.4 0 1 1 16.9-6.5z"/></svg><span class="bar" style="width:52%;height:4px;background:#cfc7b6;"></span></div>
+                  <span class="bar" style="width:86%;height:3px;margin-bottom:3px;"></span><span class="bar" style="width:64%;height:3px;"></span>
+                </div>
+                <div style="border:1px solid var(--ln);border-radius:8px;background:var(--wht);padding:7px;">
+                  <div class="pwa-row" style="gap:5px;margin-bottom:6px;"><span style="width:16px;height:16px;border-radius:4px;background:radial-gradient(circle,#f0e9dc,#ddd4c2);"></span><span class="bar" style="width:50%;height:3px;"></span><span class="d" style="margin-left:auto;font-size:7px;">R$ 115</span></div>
+                  <div class="pwa-row" style="gap:5px;margin-bottom:7px;"><span style="width:16px;height:16px;border-radius:4px;background:radial-gradient(circle,#f5ecd9,#e6d9bb);"></span><span class="bar" style="width:58%;height:3px;"></span><span class="d" style="margin-left:auto;font-size:7px;">R$ 189</span></div>
+                  <div class="pwa-row" style="justify-content:space-between;border-top:1px solid var(--ln);padding-top:5px;"><span style="font:700 7px var(--font-sans);">Total</span><span class="d" style="font-size:10px;">R$ 304,90</span></div>
+                </div>
+              </div>
+              <div class="pwa-cta" style="margin-top:auto;"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2z"/></svg><span>WhatsApp · R$ 304,90</span></div>
+            </div>
+            <div class="phone-cap" data-i18n="case3.g3">Checkout WhatsApp</div>
+          </div>
+
+          <!-- ░░ 4 · PANEL ADMIN (ESTOQUE) ░░ -->
+          <div>
+            <div class="pwa-frame" style="background:#eef1f4;" role="img" aria-label="Mockup del panel de administración: control de estoque con KPIs e ítems a reponer.">
+              <div class="pwa-sb"><span>9:41</span><span class="sig"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:5px;opacity:.4"></i></span></div>
+              <div class="pwa-row" style="justify-content:space-between;padding:2px 11px 8px;">
+                <div><div class="d" style="font-size:12px;">Estoque</div><span class="bar" style="width:54px;height:3px;margin-top:3px;"></span></div>
+                <span style="display:inline-flex;align-items:center;gap:3px;background:var(--gr);color:#fff;border-radius:7px;padding:4px 7px;font:700 6.5px var(--font-sans);"><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M12 5v14M5 12h14"/></svg>Produto</span>
+              </div>
+              <div style="padding:0 11px;display:grid;gap:7px;">
+                <div class="pwa-row" style="gap:7px;">
+                  <div class="pwa-kpi"><div class="pwa-row" style="gap:3px;margin-bottom:3px;"><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#7c8794" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/></svg><span class="bar" style="width:40px;height:3px;"></span></div><div class="d" style="font-size:10px;">R$ 9.727</div></div>
+                  <div class="pwa-kpi"><div class="pwa-row" style="gap:3px;margin-bottom:3px;"><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#7c8794" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="bar" style="width:40px;height:3px;"></span></div><div class="d" style="font-size:10px;">R$ 23.054</div></div>
+                </div>
+                <div class="pwa-alert">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#d9542a" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+                  <div style="flex:1;"><span class="bar" style="width:60%;height:3px;margin-bottom:3px;background:#e3b8a6;"></span><div style="font:700 8px var(--font-sans);color:#c0451f;">3 produtos</div></div>
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#c0451f" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+                </div>
+                <div class="pwa-row" style="background:var(--wht);border:1px solid var(--ln);border-radius:8px;height:18px;padding:0 7px;"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#7c8794" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg><span class="bar" style="width:50%;height:3px;"></span></div>
+                <div style="background:var(--wht);border:1px solid var(--ln);border-radius:8px;padding:7px;">
+                  <div class="pwa-row" style="gap:6px;margin-bottom:6px;"><span style="width:18px;height:18px;border-radius:5px;background:radial-gradient(circle,#f0e9dc,#ddd4c2);"></span><div style="flex:1;"><span class="bar" style="width:78%;height:4px;background:#cfc7b6;margin-bottom:3px;"></span><span class="bar" style="width:46%;height:3px;"></span></div><span style="font:700 5.5px var(--font-mono);color:var(--gr);">EM DIA</span></div>
+                  <div class="pwa-row" style="gap:5px;">
+                    <div class="pwa-stat"><div style="font:600 4.5px var(--font-mono);color:var(--mut);">EUA</div><div class="d" style="font-size:9px;">12</div></div>
+                    <div class="pwa-stat"><div style="font:600 4.5px var(--font-mono);color:var(--mut);">BR</div><div class="d" style="font-size:9px;">6</div></div>
+                    <div class="pwa-stat"><div style="font:600 4.5px var(--font-mono);color:var(--mut);">MÍN</div><div class="d" style="font-size:9px;">3</div></div>
+                    <div class="pwa-stat" style="display:grid;place-items:center;"><span style="font:700 6px var(--font-sans);color:var(--n);">Ajustar</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="pwa-tab" style="background:#fff;">
+                <svg class="act" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+              </div>
+            </div>
+            <div class="phone-cap" data-i18n="case3.g4">Panel admin</div>
+          </div>
+        </div>
+
+        <div class="studio-note">
+          <span class="recreation-note" data-i18n="case.recreation">Recreación ilustrativa — sin datos confidenciales.</span>
+          <span class="mono" style="color:var(--fg-mute);font-size:.8rem;" data-i18n="case3.note">Prototipo de capacidad — galería del producto real construido.</span>
+        </div>
+        <!-- Botón demo: solo visible si DEMO_STUDIO_LISTO === true (ver app.js). Oculto por defecto. -->
+        <div id="studio-demo-btn" style="display:none;margin-top:1rem;">
+          <a class="btn btn-ghost" href="#" data-i18n="case3.demo">Ver demo en vivo →</a>
+          <span class="recreation-note" style="margin-left:10px;" data-i18n="case3.demoNote">Prototipo de capacidad — navegable en vivo.</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ══════════════ 05 · PROCESO ══════════════ -->
+<section id="proceso" class="proceso">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-05</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="proc.kicker">Proceso</span>
+    </div>
+    <h2 class="h-section reveal" data-i18n="proc.title">Cómo trabajo.</h2>
+    <div class="pipeline reveal">
+      <div class="pipe" id="pipe">
+        <span class="pipe-rail" aria-hidden="true"><span class="pipe-fill"></span></span>
+        <div class="pipe-node">
+          <span class="pipe-dot" aria-hidden="true"><span class="pd-num">1</span><span class="pd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span></span>
+          <div class="pipe-body"><span class="pb-ref">LFX-01</span><h4 data-i18n="proc.s1.t">Entendemos el qué</h4><p data-i18n="proc.s1.p">Tú defines el problema…</p><span class="pipe-status"><span class="ps-dot"></span><span data-i18n="proc.s1.st">Alcance definido</span></span></div>
+        </div>
+        <div class="pipe-node">
+          <span class="pipe-dot" aria-hidden="true"><span class="pd-num">2</span><span class="pd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span></span>
+          <div class="pipe-body"><span class="pb-ref">LFX-02</span><h4 data-i18n="proc.s2.t">Construyo el cómo</h4><p data-i18n="proc.s2.p">Desarrollo a medida…</p><span class="pipe-status"><span class="ps-dot"></span><span data-i18n="proc.s2.st">En construcción</span></span></div>
+        </div>
+        <div class="pipe-node">
+          <span class="pipe-dot" aria-hidden="true"><span class="pd-num">3</span><span class="pd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span></span>
+          <div class="pipe-body"><span class="pb-ref">LFX-03</span><h4 data-i18n="proc.s3.t">Pruebo en serio</h4><p data-i18n="proc.s3.p">Pruebas, validación…</p><span class="pipe-status"><span class="ps-dot"></span><span data-i18n="proc.s3.st">Validado</span></span></div>
+        </div>
+        <div class="pipe-node">
+          <span class="pipe-dot" aria-hidden="true"><span class="pd-num">4</span><span class="pd-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span></span>
+          <div class="pipe-body"><span class="pb-ref">LFX-04</span><h4 data-i18n="proc.s4.t">Entrego en producción</h4><p data-i18n="proc.s4.p">Lo que entrego queda corriendo…</p><span class="pipe-status"><span class="ps-dot"></span><span data-i18n="proc.s4.st">En producción</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 06 · SOBRE LA FIRMA ══════════════ -->
+<section id="sobre" class="sobre has-texture">
+  <div class="tex-layer" aria-hidden="true"><img src="assets/img/textura-tecnica.jpg" alt="" loading="lazy" decoding="async" /></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-06</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="about.kicker">Sobre mí</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <h2 class="h-section reveal" style="margin-bottom:2rem;" data-i18n="about.title">Un ingeniero, no una agencia.</h2>
+        <!-- Sello misión crítica (2 de 2 apariciones permitidas) -->
+        <p class="reveal" data-i18n="about.p1">Soy desarrollador de software con más de un año…</p>
+        <p class="reveal"><span data-i18n="about.p2pre">Trabajo bajo la marca </span><strong>LexusFX</strong><span data-i18n="about.p2post">. Tú diriges la visión; yo ejecuto la ingeniería…</span></p>
+      </div>
+      <aside class="about-side reveal framed">
+        <div class="about-monogram">L<span class="fx">FX</span></div>
+        <div class="social-row">
+          <a class="social-link" href="https://instagram.com/m4xjunior" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span class="sl-lbl" data-i18n="about.social1">Cara humana:</span>
+            <span class="sl-handle">@m4xjunior</span>
+          </a>
+          <a class="social-link" href="https://instagram.com/lexusfx_" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span class="sl-lbl" data-i18n="about.social2">Empresa:</span>
+            <span class="sl-handle">@lexusfx_</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 07 · STACK ══════════════ -->
+<section id="stack" class="stack has-texture">
+  <div class="tex-layer" aria-hidden="true"><img src="assets/img/textura-tecnica.jpg" alt="" loading="lazy" decoding="async" /></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-07</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="stack.kicker">Stack</span>
+    </div>
+    <h2 class="h-section reveal" data-i18n="stack.title">Herramientas de producción.</h2>
+    <div class="stack-grid stagger">
+      <div class="stack-col reveal"><h4 data-i18n="stack.g1">IA / Visión</h4><ul><li>YOLO</li><li>ONNX Runtime</li><li>Ollama</li><li>ComfyUI</li></ul></div>
+      <div class="stack-col reveal"><h4 data-i18n="stack.g2">Backend</h4><ul><li>Rust</li><li>axum</li><li>Node.js</li><li>PostgreSQL</li></ul></div>
+      <div class="stack-col reveal"><h4 data-i18n="stack.g3">Web / Apps</h4><ul><li>Next.js</li><li>TypeScript</li><li>PWA</li><li>Tailwind</li></ul></div>
+      <div class="stack-col reveal"><h4 data-i18n="stack.g4">Industria / IoT</h4><ul><li>Modbus TCP</li><li>Robótica UR</li><li>IoT</li><li>Telemetría</li></ul></div>
+      <div class="stack-col reveal"><h4 data-i18n="stack.g5">Infra</h4><ul><li>Proxmox</li><li>Docker</li><li>CI/CD</li><li>self-hosted</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 08 · INVERSIÓN ══════════════ -->
+<section id="inversion" class="catalogo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-08</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="cat.kicker">Catálogo y precios</span>
+    </div>
+    <h2 class="h-section reveal" data-i18n="cat.title">Todo el precio, a la vista.</h2>
+    <p class="lead cat-intro reveal" data-i18n="cat.intro">Para productos repetibles, precio fijo. Para proyectos a medida, «desde» con todo lo que incluye — porque cada fábrica es distinta y poner precio cerrado a ciegas sería mentir.</p>
+
+    <div class="cat-block reveal">
+      <div class="cat-block-head">
+        <span class="cat-gama">LexusFX <span class="fx">Carrusel</span></span>
+        <span class="cat-kind" data-i18n="cat.c1.kind">SaaS · precio fijo</span>
+        <p class="cat-what" data-i18n="cat.c1.what">Carruseles para Instagram y LinkedIn generados con IA, listos para publicar. Tú apruebas, yo genero.</p>
+      </div>
+      <div class="plan-grid stagger">
+        <div class="plan-card reveal">
+          <div class="plan-name" data-i18n="cat.c1.p1.name">Prueba</div>
+          <div class="plan-price small" data-i18n="cat.c1.p1.price">Gratis · 1 carrusel</div>
+          <p class="plan-for" data-i18n="cat.c1.p1.for">1 carrusel de 5 slides con tu marca · con marca de agua LexusFX · sin compromiso.</p>
+          <div class="plan-cta"><a class="btn btn-ghost" href="#contacto" data-i18n="cat.c1.cta">Genera tu primer carrusel gratis →</a></div>
+        </div>
+        <div class="plan-card reveal">
+          <div class="plan-name" data-i18n="cat.c1.p2.name">Básico</div>
+          <div class="plan-price cat-count" data-i18n="cat.c1.p2.price">79 €/mes</div>
+          <ul class="plan-feats"><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p2.f1">4 carruseles/mes (1/semana)</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p2.f2">Tu paleta y logo</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p2.f3">Formatos IG + LinkedIn</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p2.f4">Sin marca de agua</span></li></ul>
+          <div class="plan-cta"><a class="btn btn-ghost" href="#contacto" data-i18n="cat.c1.p2.cta">Empezar</a></div>
+        </div>
+        <div class="plan-card rec reveal">
+          <span class="plan-rec-tag" data-i18n="cat.rec">Recomendado</span>
+          <div class="plan-name" data-i18n="cat.c1.p3.name">Pro</div>
+          <div class="plan-price cat-count" data-i18n="cat.c1.p3.price">149 €/mes</div>
+          <ul class="plan-feats"><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p3.f1">12 carruseles/mes (3/semana)</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p3.f2">Todo lo del Básico</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p3.f3">Calendario de contenido</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p3.f4">Prioridad de generación</span></li></ul>
+          <div class="plan-cta"><a class="btn btn-primary" href="#contacto" data-i18n="cat.c1.p3.cta">Quiero el Pro</a></div>
+        </div>
+        <div class="plan-card reveal">
+          <div class="plan-name" data-i18n="cat.c1.p4.name">Marca</div>
+          <div class="plan-price small" data-i18n="cat.c1.p4.price">desde 290 €/mes</div>
+          <ul class="plan-feats"><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p4.f1">Volumen a medida</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p4.f2">Varias cuentas/marcas</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p4.f3">Copy adaptado</span></li><li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="cat.c1.p4.f4">Soporte directo</span></li></ul>
+          <div class="plan-cta"><a class="btn btn-ghost" href="#contacto" data-i18n="cat.c1.p4.cta">Hablar de volumen</a></div>
+        </div>
+      </div>
+      <div class="cat-foot">
+        <div class="cat-line inc"><span class="cl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span><span><span class="cl-key" data-i18n="cat.inc">Incluye siempre</span> &nbsp;<span data-i18n="cat.c1.inc">Imágenes generadas con IA (sin bancos de stock) · composición automática · ajuste a tu identidad visual.</span></span></div>
+        <div class="cat-line exc"><span class="cl-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 6 6 18"/></svg></span><span><span class="cl-key" data-i18n="cat.exc">No incluye</span> &nbsp;<span data-i18n="cat.c1.exc">Publicación automática en tus redes (la haces tú o se añade aparte) · gestión de comunidad.</span></span></div>
+      </div>
+    </div>
+
+    <div class="cat-block reveal">
+      <div class="cat-block-head">
+        <span class="cat-gama">LexusFX <span class="fx">Studio</span></span>
+        <span class="cat-kind" data-i18n="cat.c2.kind">Apps y tiendas · desde</span>
+        <p class="cat-what" data-i18n="cat.c2.what">Apps y tiendas a medida que venden de verdad. Catálogo, pedidos por WhatsApp, panel de administración propio, instalable como app (PWA). Construido a mano, no plantilla.</p>
+      </div>
+      <div class="plan-grid cols-3 stagger">
+        <div class="plan-card reveal">
+          <div class="plan-name" data-i18n="cat.c2.p1.name">Tienda Esencial</div>
+          <div class="plan-price" data-i18n="cat.c2.p1.price">desde 1.500 €</div>
+          <p class="plan-for" data-i18n="cat.c2.p1.for">Catálogo + pedidos por WhatsApp + PWA instalable. MVP para empezar a vender ya.</p>
+          <div class="plan-cta"><a class="btn btn-ghost" href="#contacto" data-i18n="cat.c2.p1.cta">Empezar con el MVP</a></div>
+        </div>
+        <div class="plan-card rec reveal">
+          <span class="plan-rec-tag" data-i18n="cat.rec2">Recomendado</span>
+          <div class="plan-name" data-i18n="cat.c2.p2.name">Tienda Pro</div>
+          <div class="plan-price" data-i18n="cat.c2.p2.price">desde 8.000 €</div>
+          <p class="plan-for" data-i18n="cat.c2.p2.for">Todo lo anterior + panel de administración + multi-precio + gestión de stock. El estándar B2B.</p>
+          <div class="plan-cta"><a class="btn btn-primary" href="#contacto" data-i18n="cat.c2.p2.cta">Quiero la Tienda Pro</a></div>
+        </div>
+        <div class="plan-card reveal">
+          <div class="plan-name" data-i18n="cat.c2.p3.name">A medida</div>
+          <div class="plan-price" data-i18n="cat.c2.p3.price">desde 25.000 €</div>
+          <p class="plan-for" data-i18n="cat.c2.p3.for">Proyectos completos con integraciones, multi-usuario y lógica de negocio específica.</p>
+          <div class="plan-cta"><a class="btn btn-ghost" href="#contacto" data-i18n="cat.c2.p3.cta">Plantear un proyecto</a></div>
+        </div>
+      </div>
+      <div class="cat-foot">
+        <div class="cat-line inc"><span class="cl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span><span><span class="cl-key" data-i18n="cat.inc2">Incluye</span> &nbsp;<span data-i18n="cat.c2.inc">Diseño a medida · catálogo y carrito · pedidos por WhatsApp · PWA instalable · código propio (es tuyo).</span></span></div>
+        <div class="cat-line"><span class="cl-key" data-i18n="cat.rec.opt">Recurrente (opcional)</span><span data-i18n="cat.c2.rec">Mantenimiento y hosting desde 15 %/año del proyecto · soporte.</span></div>
+        <div class="cat-line exc"><span class="cl-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18M18 6 6 18"/></svg></span><span><span class="cl-key" data-i18n="cat.exc2">No incluye</span> &nbsp;<span data-i18n="cat.c2.exc">Contenido/fotos de producto (los pones tú o se cotiza aparte) · campañas de publicidad.</span></span></div>
+        <div class="cat-line warranty"><span class="cl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><strong data-i18n="cat.c2.war.h">Garantía de prueba.</strong> <span data-i18n="cat.c2.war">Te monto una demo con TUS productos en 48 h antes de que pagues el proyecto completo.</span></span></div>
+      </div>
+      <div class="cat-cta-row">
+        <a class="btn btn-ghost" href="#casos" data-i18n="cat.c2.cta1">Ver demo de tienda →</a>
+        <a class="btn btn-primary" href="#contacto" data-i18n="cat.c2.cta2">Pedir mi demo en 48 h →</a>
+      </div>
+    </div>
+
+    <div class="cat-block reveal">
+      <div class="cat-block-head">
+        <span class="cat-gama">LexusFX <span class="fx">Industrial</span></span>
+        <span class="cat-kind" data-i18n="cat.c3.kind">IA / visión · desde</span>
+        <p class="cat-what" data-i18n="cat.c3.what">Visión artificial, automatización y control industrial. Inspección visual, robótica, IoT. Cada planta es distinta, así que empiezo con un piloto acotado de bajo riesgo: mides el ROI antes de invertir de verdad.</p>
+      </div>
+      <div class="plan-grid cols-3 stagger">
+        <div class="plan-card rec reveal">
+          <span class="plan-rec-tag" data-i18n="cat.c3.start">Empieza aquí</span>
+          <div class="plan-name" data-i18n="cat.c3.p1.name">Piloto</div>
+          <div class="plan-price" data-i18n="cat.c3.p1.price">desde 8.000 €</div>
+          <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--fg-mute);margin-top:-2px;" data-i18n="cat.c3.p1.hw">+ hardware desde 4.000 €</div>
+          <p class="plan-for" data-i18n="cat.c3.p1.for">Sistema acotado sobre una pieza/defecto concreto. Pruebas el ROI antes de escalar.</p>
+          <div class="plan-cta"><a class="btn btn-primary" href="#contacto" data-i18n="cat.c3.p1.cta">Hablemos de un piloto</a></div>
+        </div>
+        <div class="plan-card reveal">
+          <div class="plan-name" data-i18n="cat.c3.p2.name">Módulo</div>
+          <div class="plan-price" data-i18n="cat.c3.p2.price">desde 6.000 €/módulo</div>
+          <div style="font-family:var(--font-mono);font-size:.72rem;color:var(--fg-mute);margin-top:-2px;" data-i18n="cat.c3.p2.via">vía integrador</div>
+          <p class="plan-for" data-i18n="cat.c3.p2.for">Capa de visión/IA que se integra en tu proyecto o el de tu integrador.</p>
+          <div class="plan-cta"><a class="btn btn-ghost" href="#contacto" data-i18n="cat.c3.p2.cta">Integrar un módulo</a></div>
+        </div>
+        <div class="plan-card reveal">
+          <div class="plan-name" data-i18n="cat.c3.p3.name">Visión as a Service</div>
+          <div class="plan-price small" data-i18n="cat.c3.p3.price">recurrente, a medida</div>
+          <p class="plan-for" data-i18n="cat.c3.p3.for">Operación y evolución continua del sistema en producción.</p>
+          <div class="plan-cta"><a class="btn btn-ghost" href="#contacto" data-i18n="cat.c3.p3.cta">Hablar de operación</a></div>
+        </div>
+      </div>
+      <div class="cat-foot">
+        <div class="cat-line inc"><span class="cl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4 10-10"/></svg></span><span><span class="cl-key" data-i18n="cat.inc3">Incluye</span> &nbsp;<span data-i18n="cat.c3.inc">Modelo de IA a medida (YOLO/ONNX) · integración con tu hardware (Modbus/robot/PLC) · inferencia local (tus datos no salen) · ingeniería pensada para producción 24/7.</span></span></div>
+        <div class="cat-line warranty"><span class="cl-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><strong data-i18n="cat.c3.why.h">¿Por qué «desde» y no precio cerrado?</strong> <span data-i18n="cat.c3.why">Cada línea, pieza y defecto es distinto. El piloto fija el precio real con datos, no a ciegas. Es más honesto y te protege a ti.</span></span></div>
+      </div>
+      <div class="cat-cta-row">
+        <a class="btn btn-primary" href="#contacto" data-i18n="cat.c3.cta1">Hablemos de un piloto →</a>
+        <a class="btn btn-ghost" href="#casos" data-i18n="cat.c3.cta2">Ver caso de inspección →</a>
+      </div>
+    </div>
+    <p class="cat-filter reveal" data-i18n="cat.filter">Todo el precio está aquí, sin letra pequeña. Si buscas la opción más barata, probablemente no soy tu mejor opción — y no pasa nada.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 09 · CONTACTO ══════════════ -->
+<section id="contacto" class="contacto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-ref mono">LFX-09</span>
+      <span class="sec-rule" aria-hidden="true"></span>
+      <span class="sec-label" data-i18n="contact.kicker">Contacto</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <h2 class="h-section reveal" style="margin-bottom:1.4rem;" data-i18n="contact.title">Cuéntame qué quieres construir.</h2>
+        <p class="reveal" data-i18n="contact.sub">Respondo personalmente…</p>
+        <!-- WhatsApp configurado: +34 654 94 98 78 -->
+        <a class="wa-btn reveal" href="https://wa.me/34654949878" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.1-.3.2-.5.1-.7-.3-1.4-.6-2-1.4-.4-.5.4-.5 1.2-1.6.1-.2.1-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.7.7-.9 1.7-.6 2.7.6 1.9 1.9 3.4 3.9 4.3 1.4.6 1.9.6 2.6.5.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>
+          <span data-i18n="contact.wa">Escríbeme por WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- EDITAR: el backend se conecta luego (endpoint o mailto). Único requerido: mensaje + nombre + email. -->
+      <form class="form reveal" id="contact-form" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-nombre"><span data-i18n="contact.f.nombre">Nombre</span> <span class="req">*</span></label>
+            <input id="f-nombre" name="nombre" type="text" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="f-email"><span data-i18n="contact.f.email">Email</span> <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" required autocomplete="email" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-empresa" data-i18n="contact.f.empresa">Empresa (opcional)</label>
+          <input id="f-empresa" name="empresa" type="text" autocomplete="organization" />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-gama" data-i18n="contact.f.gama">¿Qué necesitas?</label>
+            <select id="f-gama" name="gama">
+              <option data-i18n="contact.f.gama.o1">LexusFX Studio — app/tienda a medida</option>
+              <option data-i18n="contact.f.gama.o2">LexusFX Industrial — IA/visión/industria</option>
+              <option data-i18n="contact.f.gama.o3">Aún no lo sé</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-budget" data-i18n="contact.f.budget">Presupuesto estimado (opcional)</label>
+            <select id="f-budget" name="budget">
+              <option data-i18n="contact.f.budget.o1">Prefiero hablarlo primero</option>
+              <option data-i18n="contact.f.budget.o2">Menos de 1.500 €</option>
+              <option data-i18n="contact.f.budget.o3">1.500 € – 6.000 €</option>
+              <option data-i18n="contact.f.budget.o4">6.000 € – 20.000 €</option>
+              <option data-i18n="contact.f.budget.o5">Más de 20.000 €</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg"><span data-i18n="contact.f.msg">Cuéntame tu proyecto</span> <span class="req">*</span></label>
+          <textarea id="f-msg" name="mensaje" required placeholder=""></textarea>
+        </div>
+        <p class="form-micro" data-i18n="contact.micro">¿Aún no tienes el alcance claro? Mejor. Escríbeme la idea en una línea y yo te digo por dónde empezar.</p>
+        <div class="form-foot">
+          <span class="privacy" data-i18n="contact.privacy">Tus datos solo se usan para responder tu consulta.</span>
+          <button type="submit" class="btn btn-primary" data-i18n="contact.send">Enviar</button>
+        </div>
+        <div class="form-ok" id="form-ok" role="status" data-i18n="contact.ok">Gracias. Te respondo personalmente lo antes posible.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════ 10 · FOOTER ══════════════ -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="wordmark"><span class="lex">Lexus</span><span class="fx">FX</span></span>
+        <div class="footer-tag" data-i18n="footer.tag">Software en producción real.</div>
+        <!-- CNPJ configurado: LEXUS FX SOLUÇÕES E PAGAMENTOS LTDA -->
+        <div class="footer-legal" data-i18n="footer.legal">LexusFX · CNPJ 53.833.582/0001-53</div>
+      </div>
+      <div>
+        <div class="footer-links">
+          <a href="https://instagram.com/m4xjunior" target="_blank" rel="noopener noreferrer">Instagram @m4xjunior</a>
+          <a href="https://instagram.com/lexusfx_" target="_blank" rel="noopener noreferrer">Instagram @lexusfx_</a>
+          <a href="https://wa.me/34654949878" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <!-- Email configurado -->
+          <a href="mailto:max@lexusfx.com" data-i18n="footer.email">Email</a>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-top:1.2rem;">
+          <div class="seg" role="group" aria-label="Idioma / Língua">
+            <button type="button" data-lang-btn="es" aria-pressed="true">ES</button>
+            <button type="button" data-lang-btn="pt" aria-pressed="false">PT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copyright" data-i18n="footer.copy">© 2026 LexusFX. Todos los derechos reservados.</span>
+      <a class="to-top" href="#inicio" data-i18n="footer.totop">Volver arriba ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Barra de acción fija — solo móvil (la CTA del nav se traslada aquí) -->
+<div class="m-cta" aria-label="Acciones rápidas">
+  <!-- WhatsApp configurado: +34 654 94 98 78 -->
+  <a class="m-wa" href="https://wa.me/34654949878" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.1-.3.2-.5.1-.7-.3-1.4-.6-2-1.4-.4-.5.4-.5 1.2-1.6.1-.2.1-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.7.7-.9 1.7-.6 2.7.6 1.9 1.9 3.4 3.9 4.3 1.4.6 1.9.6 2.6.5.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.1-.4-.2z"/></svg>
+  </a>
+  <a class="btn btn-primary m-hablemos" href="#contacto" data-i18n="nav.cta">Hablemos</a>
+</div>
+
+<script src="assets/i18n.js?v=20260602"></script>
+<script src="assets/app.js?v=20260602b"></script>
+</body>
+</html>
