@@ -1,0 +1,13 @@
+# Cabeceras de seguridad para Cloudflare Pages.
+# Réplica del hardening que aplicaba serve.py (origen detrás de cloudflared),
+# ahora que el sitio se sirve directamente desde Pages.
+# Decisión CSP: index.html lleva <script> inline y la maqueta Móvil usa
+# unpkg + Babel standalone -> se permite 'unsafe-inline'/'unsafe-eval' y unpkg.
+# El valor defensivo real está en frame-ancestors/object-src/base-uri.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'
